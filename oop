@@ -1,0 +1,40 @@
+##OOP
+
+import time #хочу щоб гарно було
+
+
+# інкапсуляція приховані дані
+class nikitos:
+    def __init__(self):
+        self.name = "NIXINDUSTIS" #публічне
+        self.__security_code = 171717 #інкапсульоване
+    def getcode(self, code):
+        return code == self.__security_code
+                                                                                                                                                                                         
+myh = nikitos()
+
+
+
+print(f"вітаємо в системі {myh.name}!")
+attempts =3
+time.sleep(2)
+while attempts  > 0:
+    user_input = input(f"залишилось спроб: {attempts}. введіть код доступу:   ")
+    if not user_input.isdigit():
+        print("цей код має бути з чисел..💕😁👍🙌")
+        continue
+    myh.getcode(int(user_input))
+    if myh.getcode(int(user_input)) == True:
+        print("ДОСТУП НАДАНО😎😎😎😎.Ласкаво просимо.")
+        break
+    else:
+        attempts -= 1 
+        if attempts > 0:
+            print()
+        else:
+            print("ДОСТУП ЗАБОРОНЕНО.🤣🤣🤣")
+
+
+# можна отрмати доступ до пібльчного атрибуту (що ?)
+# print(myh.getcode(171717)) #виклик методу getcode з правильним кодом
+# print(myh.getcode(123456)) #виклик методу getcode з неправильним кодом
